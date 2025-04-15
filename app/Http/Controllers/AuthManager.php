@@ -23,7 +23,7 @@ class AuthManager extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             // * kullanıcıyı giriş yapmadan önce gitmek istediği sayfaya yönlendirir
-            return redirect()->intended(route('welcome'));
+            return redirect()->intended(route('home'));
         }
         return redirect(route('login'))->with('error', 'Invalid credentials');
     }
@@ -48,5 +48,11 @@ class AuthManager extends Controller
             return redirect()->intended(route('login'))->with('success', 'Registration successful');
         }
         return redirect(route('register'))->with('error', 'Registration failed');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect(route('home'));
     }
 }
