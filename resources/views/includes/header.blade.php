@@ -8,19 +8,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Ana Sayfa</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Ana Sayfa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ürünler</a>
+                    <a class="nav-link" href="{{ route('home') }}">Ürünler</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kategoriler</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Hakkımızda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">İletişim</a>
+                    <a class="nav-link" href="{{ route('orders') }}">Siparişler</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

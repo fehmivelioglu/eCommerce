@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\ProductsManager;
-
+use App\Http\Controllers\OrderManager;
 Route::get('/', [ProductsManager::class, 'index'])->name('home');
 Route::get('/product/{id}', [ProductsManager::class, 'details'])->name('details');
 
@@ -20,4 +20,7 @@ Route::controller(AuthManager::class)->group(callback: function () {
 Route::middleware('auth')->group(function () {
     Route::get('/cart/{id}', [ProductsManager::class, 'addToCart'])->name('addToCart');
     Route::get('/cart', [ProductsManager::class, 'showCart'])->name('showCart');
+    Route::get('/checkout', [OrderManager::class, 'checkout'])->name('checkout');
+    Route::post('/payment', [OrderManager::class, 'paymentProcess'])->name('paymentProcess');
+    Route::get('/orders', action: [OrderManager::class, 'orders'])->name('orders');
 });
